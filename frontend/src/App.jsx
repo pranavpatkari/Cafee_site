@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 
 // Cafe UI
 import Landing from "./components/Landing";
@@ -14,7 +14,7 @@ import LoginPage from "./dashboard/pages/LoginPage";
 import ProtectedRoute from "./dashboard/components/ProtectedRoute";
 import DashboardPage from "./dashboard/pages/DashboardPage";
 
-// 🧩 Cafe Page
+// ☕ Cafe Page
 function CafeSite() {
   return (
     <>
@@ -28,16 +28,18 @@ function CafeSite() {
   );
 }
 
-// 🔁 Landing → Cafe
+// 🚀 Landing → Cafe
 function LandingWrapper() {
+  const navigate = useNavigate();
+
   const goToCafe = () => {
-    window.location.href = "/cafe";
+    navigate("/cafe");
   };
 
   return <Landing onEnter={goToCafe} />;
 }
 
-// 🚀 Main App
+// Main App
 export default function App() {
   return (
     <Router>
@@ -45,10 +47,10 @@ export default function App() {
         <Route path="/" element={<LandingWrapper />} />
         <Route path="/cafe" element={<CafeSite />} />
 
-        {/* 🔐 Login */}
+        {/* Login */}
         <Route path="/login" element={<LoginPage />} />
 
-        {/* 🔒 Protected Dashboard */}
+        {/* Protected Dashboard */}
         <Route
           path="/admin"
           element={
