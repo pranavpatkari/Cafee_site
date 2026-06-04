@@ -1,0 +1,143 @@
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 20px 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(181,129,58,0.15);
+}
+
+/* LOGO */
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--espresso);
+}
+
+.nav-logo span {
+  color: var(--caramel);
+  font-style: italic;
+}
+
+/* LINKS */
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--espresso);
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--caramel);
+}
+
+/* RIGHT SIDE */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* INPUT MODE */
+.user-inputs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.user-inputs input {
+  padding: 6px 8px;
+  border: 1px solid rgba(181,129,58,0.2);
+  background: transparent;
+  color: var(--espresso);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  outline: none;
+  border-radius: 4px;
+
+  transition: border 0.2s ease;
+}
+
+.user-inputs input:focus {
+  border-color: var(--caramel);
+}
+
+.user-inputs input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* DISPLAY MODE */
+.user-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--espresso);
+
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(181,129,58,0.08);
+}
+
+/* EDIT BUTTON */
+.user-edit {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.user-edit:hover {
+  opacity: 1;
+}
+
+/* SAVE BUTTON */
+.user-save {
+  background: var(--espresso);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.user-save:hover {
+  background: var(--caramel);
+}
+
+/* THEME BUTTON */
+.nav-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.nav-toggle:hover {
+  transform: scale(1.1);
+}

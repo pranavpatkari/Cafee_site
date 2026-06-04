@@ -1,0 +1,14 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: 64px;
+}
+
+.hero-title em {
+  color: var(--caramel);
+}

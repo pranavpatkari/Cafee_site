@@ -1,0 +1,197 @@
+/* 🌿 BASE */
+.dashboard {
+  padding: 30px;
+  background: #f6f3ef;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+/* 🔝 HEADER */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.dashboard-header h2 {
+  font-size: 1.8rem;
+  color: #2c1b12;
+}
+
+/* 👤 ADMIN INFO */
+.admin-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-email {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* 🔘 BUTTON */
+.btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: #c58a3d;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #a86b2d;
+}
+
+/* 🔘 NAVBAR */
+.dashboard-nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.dashboard-nav button {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  background: #e5e2dc;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.dashboard-nav button:hover {
+  background: #d6d2cb;
+}
+
+.dashboard-nav button.active {
+  background: #c58a3d;
+  color: white;
+}
+
+/* 📊 ANALYTICS GRID */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* 📦 CARD (used by charts too) */
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: #3a2a20;
+}
+
+/* 📦 ORDERS GRID */
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* 🧾 ORDER CARD */
+.order-card {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transition: 0.2s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-2px);
+}
+
+.order-card h4 {
+  margin-bottom: 10px;
+  color: #2c1b12;
+}
+
+/* 👤 CUSTOMER */
+.order-card strong {
+  color: #3a2a20;
+}
+
+/* 📋 ITEMS */
+.order-card ul {
+  padding-left: 16px;
+  margin-bottom: 10px;
+}
+
+/* 🏷️ STATUS */
+.status {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+/* STATUS COLORS */
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.preparing {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.status.done {
+  background: #d4edda;
+  color: #155724;
+}
+
+/* 🕒 TIME */
+.order-time {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin-top: 8px;
+}
+
+/* 🔘 ACTION BUTTONS (inside cards) */
+.order-card button {
+  transition: 0.2s ease;
+}
+
+.order-card button:hover {
+  opacity: 0.9;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 20px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .dashboard-nav {
+    flex-wrap: wrap;
+  }
+}

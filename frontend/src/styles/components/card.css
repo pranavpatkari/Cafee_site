@@ -1,0 +1,11 @@
+.card {
+  background: var(--cream);
+  border: 1px solid var(--parchment);
+  padding: 20px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.card:hover {
+  opacity: 0.95;
+}

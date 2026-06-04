@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--cream);
+  color: var(--espresso);
+}
+
+section {
+  padding: 100px 0;
+}
