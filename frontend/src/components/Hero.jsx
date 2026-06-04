@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 
 export default function Hero() {
   const images = [
-    "/images/image1.jpg",
-    "/images/image2.jpg",
-    "/images/image3.jpg"
-  ];
-
+  "/images/image1.webp",
+  "/images/image2.webp",
+  "/images/image3.webp"
+];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -32,7 +31,12 @@ export default function Hero() {
       </div>
 
       <div className="hero-right">
-        <img src={images[index]} className="hero-img" />
+        <img
+  src={images[index]}
+  className="hero-img"
+  alt="Cafe Interior"
+  fetchPriority="high"
+/>
 
         <div className="hero-box">
           <div className="year">2024</div>
