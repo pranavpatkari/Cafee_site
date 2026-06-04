@@ -1,4 +1,10 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import React, { lazy, Suspense } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 
 // Cafe UI
 import Landing from "./components/Landing";
@@ -10,10 +16,17 @@ import About from "./components/About";
 import Hours from "./components/Hours";
 
 // Auth + Dashboard
-import LoginPage from "./dashboard/pages/LoginPage";
-import ProtectedRoute from "./dashboard/components/ProtectedRoute";
-import DashboardPage from "./dashboard/pages/DashboardPage";
+const LoginPage = lazy(() =>
+  import("./dashboard/pages/LoginPage")
+);
 
+const ProtectedRoute = lazy(() =>
+  import("./dashboard/components/ProtectedRoute")
+);
+
+const DashboardPage = lazy(() =>
+  import("./dashboard/pages/DashboardPage")
+);
 // ☕ Cafe Page
 function CafeSite() {
   return (
@@ -42,7 +55,8 @@ function LandingWrapper() {
 // Main App
 export default function App() {
   return (
-    <Router>
+  <Router>
+    <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path="/" element={<LandingWrapper />} />
         <Route path="/cafe" element={<CafeSite />} />
@@ -60,6 +74,7 @@ export default function App() {
           }
         />
       </Routes>
+      </Suspense>
     </Router>
   );
 }

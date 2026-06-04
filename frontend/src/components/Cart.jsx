@@ -3,8 +3,7 @@ import { CartContext } from "../context/CartContext";
 import { db } from "../services/firebase";
 import { collection, addDoc } from "firebase/firestore";
 
-import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
+
 
 export default function Cart() {
   const { cart, addToCart, removeFromCart, clearCart } =
@@ -38,7 +37,10 @@ export default function Cart() {
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   // 🔥 PDF GENERATOR
-  const generatePDF = (order) => {
+    const generatePDF = async (order) => {
+    const { default: jsPDF } = await import("jspdf");
+    const { default: autoTable } = await import("jspdf-autotable");
+
     const doc = new jsPDF();
 
     // HEADER
