@@ -143,7 +143,7 @@ export default function Cart() {
       localStorage.setItem("customer", JSON.stringify(customer));
 
       // 🔥 Generate PDF
-      const pdf = generatePDF(order);
+      const pdf = await generatePDF(order);
       pdf.save(`invoice-${Date.now()}.pdf`);
 
       alert("Order placed ✅");
