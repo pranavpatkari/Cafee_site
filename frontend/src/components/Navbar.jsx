@@ -16,9 +16,15 @@ export default function Navbar() {
         <li>
           <a href="#menu">Menu</a>
         </li>
+
+        <li>
+          <a href="/discover">Discover</a>
+        </li>
+
         <li>
           <a href="#about">About</a>
         </li>
+
         <li>
           <a href="#hours">Visit</a>
         </li>

@@ -15,7 +15,7 @@ import Cart from "./components/Cart";
 import About from "./components/About";
 import Hours from "./components/Hours";
 
-// Auth + Dashboard
+// Lazy Loaded Pages
 const LoginPage = lazy(() =>
   import("./dashboard/pages/LoginPage")
 );
@@ -27,7 +27,12 @@ const ProtectedRoute = lazy(() =>
 const DashboardPage = lazy(() =>
   import("./dashboard/pages/DashboardPage")
 );
-// ☕ Cafe Page
+
+const DiscoverPage = lazy(() =>
+  import("./pages/DiscoverPage")
+);
+
+// Cafe Page
 function CafeSite() {
   return (
     <>
@@ -41,39 +46,53 @@ function CafeSite() {
   );
 }
 
-// 🚀 Landing → Cafe
+// Landing → Cafe
 function LandingWrapper() {
   const navigate = useNavigate();
 
-  const goToCafe = () => {
-    navigate("/cafe");
-  };
-
-  return <Landing onEnter={goToCafe} />;
+  return (
+    <Landing
+      onEnter={() => navigate("/cafe")}
+    />
+  );
 }
 
-// Main App
 export default function App() {
   return (
-  <Router>
-    <Suspense fallback={<div>Loading...</div>}>
-      <Routes>
-        <Route path="/" element={<LandingWrapper />} />
-        <Route path="/cafe" element={<CafeSite />} />
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
 
-        {/* Login */}
-        <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/"
+            element={<LandingWrapper />}
+          />
 
-        {/* Protected Dashboard */}
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <DashboardPage />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+          <Route
+            path="/cafe"
+            element={<CafeSite />}
+          />
+
+          <Route
+            path="/discover"
+            element={<DiscoverPage />}
+          />
+
+          <Route
+            path="/login"
+            element={<LoginPage />}
+          />
+
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <DashboardPage />
+              </ProtectedRoute>
+            }
+          />
+
+        </Routes>
       </Suspense>
     </Router>
   );
