@@ -35,7 +35,7 @@ export default function Hero() {
   src={images[index]}
   className="hero-img"
   alt="Cafe Interior"
-  fetchPriority="high"
+  fetchpriority="high"
 />
 
         <div className="hero-box">

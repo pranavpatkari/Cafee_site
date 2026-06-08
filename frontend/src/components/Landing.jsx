@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 export default function Landing({ onEnter }) {
   const images = [
-    "/images/image4.jpg",
-    "/images/image5.jpg",
-    "/images/image6.jpg",
+    "/images/image4.webp",
+    "/images/image5.webp",
+    "/images/image6.webp",
   ];
 
   const [index, setIndex] = useState(0);
