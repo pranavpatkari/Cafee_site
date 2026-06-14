@@ -36,6 +36,16 @@ export default function Menu() {
     <section className="menu">
       <h2>Our Menu</h2>
 
+      <div className="featured-section">
+        <h3>🔥 Customer Favorites</h3>
+
+        <div className="featured-items">
+          <div className="featured-card">🍔 Cheese Burst Burger</div>
+          <div className="featured-card">☕ Cold Coffee</div>
+          <div className="featured-card">🍨 Ice Cream Sundae</div>
+        </div>
+      </div>
+
       <div className="menu-tabs">
         <button onClick={() => setTab("food")}>Food</button>
         <button onClick={() => setTab("drinks")}>Drinks</button>

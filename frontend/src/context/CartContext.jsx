@@ -1,23 +1,56 @@
-import { createContext, useState } from "react";
+import {
+  createContext,
+  useState,
+  useEffect
+} from "react";
 
 export const CartContext = createContext();
 
 export default function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const saved = localStorage.getItem("cart");
+
+    return saved
+      ? JSON.parse(saved)
+      : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(
+      "cart",
+      JSON.stringify(cart)
+    );
+
+    console.log(
+      "GLOBAL CART:",
+      cart
+    );
+  }, [cart]);
 
   const addToCart = (item) => {
     setCart((prev) => {
-      const existing = prev.find((i) => i.name === item.name);
+      const existing = prev.find(
+        (i) => i.name === item.name
+      );
 
       if (existing) {
         return prev.map((i) =>
           i.name === item.name
-            ? { ...i, qty: i.qty + 1 }
+            ? {
+                ...i,
+                qty: i.qty + 1
+              }
             : i
         );
       }
 
-      return [...prev, { ...item, qty: 1 }];
+      return [
+        ...prev,
+        {
+          ...item,
+          qty: 1
+        }
+      ];
     });
   };
 
@@ -26,17 +59,29 @@ export default function CartProvider({ children }) {
       prev
         .map((i) =>
           i.name === item.name
-            ? { ...i, qty: i.qty - 1 }
+            ? {
+                ...i,
+                qty: i.qty - 1
+              }
             : i
         )
         .filter((i) => i.qty > 0)
     );
   };
 
-  const clearCart = () => setCart([]);
+  const clearCart = () => {
+    setCart([]);
+  };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        clearCart
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

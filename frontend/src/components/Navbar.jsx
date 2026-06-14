@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [dark, setDark] = useState(false);
@@ -14,11 +15,11 @@ export default function Navbar() {
 
       <ul className="nav-links">
         <li>
-          <a href="#menu">Menu</a>
+          <Link to="/cafe">Menu</Link>
         </li>
 
         <li>
-          <a href="/discover">Discover</a>
+          <Link to="/discover">Discover</Link>
         </li>
 
         <li>
@@ -31,9 +32,9 @@ export default function Navbar() {
       </ul>
 
       <div className="nav-right">
-        <a href="/login" className="user-save">
+        <Link to="/login" className="user-save">
           Admin Login
-        </a>
+        </Link>
 
         <button className="nav-toggle" onClick={toggleTheme}>
           {dark ? "🌙" : "☀"}

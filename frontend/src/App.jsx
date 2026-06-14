@@ -3,11 +3,9 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useNavigate,
 } from "react-router-dom";
 
 // Cafe UI
-import Landing from "./components/Landing";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Menu from "./components/Menu/Menu";
@@ -32,7 +30,6 @@ const DiscoverPage = lazy(() =>
   import("./pages/DiscoverPage")
 );
 
-// Cafe Page
 function CafeSite() {
   return (
     <>
@@ -46,17 +43,6 @@ function CafeSite() {
   );
 }
 
-// Landing → Cafe
-function LandingWrapper() {
-  const navigate = useNavigate();
-
-  return (
-    <Landing
-      onEnter={() => navigate("/cafe")}
-    />
-  );
-}
-
 export default function App() {
   return (
     <Router>
@@ -65,7 +51,7 @@ export default function App() {
 
           <Route
             path="/"
-            element={<LandingWrapper />}
+            element={<CafeSite />}
           />
 
           <Route
